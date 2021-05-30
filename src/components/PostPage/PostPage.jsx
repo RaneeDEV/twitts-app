@@ -11,7 +11,11 @@ function UserPage() {
   async function getData(url) {
 
     try {
-      const data = await fetch(url).then((r) => r.json());
+      const response = await fetch(url);
+      if (!response.ok) {
+         throw new Error('404')
+      }
+      const data = await response.json()
       setPost(data);
     } catch (error) {
        console.warn('Error', error);
