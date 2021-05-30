@@ -1,7 +1,15 @@
-function Post(params) {
+import { useHistory } from "react-router"
+
+function Post({postData}) {
+   const histroy = useHistory()
    return (
       <>
-      <h1>Post</h1>
+      <div onClick={() => histroy.push(`post/${postData.id}`)}>
+         <p>{postData.userId}</p>
+         <p>{postData.body}</p>
+         <p>{postData.title}</p>
+         <hr />
+      </div>
       </>
    )
 }

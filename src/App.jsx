@@ -1,7 +1,8 @@
 import "./App.css";
 import PostsList from "./components/PostsList/PostsList"
-import Post from "./components/Post/Post"
+import PostPage from "./components/PostPage/PostPage"
 import UserPage from "./components/UserPage/UserPage"
+import ErrorPage from "./components/ErrorPage/ErrorPage"
 import { Switch, Route, Link } from "react-router-dom";
 
 function App() {
@@ -14,22 +15,25 @@ function App() {
                 <Link to="/">PostList</Link>
               </li>
               <li>
-                <Link to="/post">Post</Link>
+                <Link to="/post/2">Post</Link>
               </li>
               <li>
-                <Link to="/user">User</Link>
+                <Link to="/user/5">User</Link>
               </li>
             </ul>
           </nav>
           <Switch>
-            <Route exact path="/post">
-              <Post />
+            <Route exact path="/">
+              <PostsList/>
             </Route>
-            <Route path="/user">
+            <Route exact path="/post/:postId">
+              <PostPage />
+            </Route>
+            <Route exact path="/user/:userId">
               <UserPage />
             </Route>
-            <Route path="/">
-              <PostsList/>
+            <Route path="*">
+              <ErrorPage />
             </Route>
           </Switch>
         </div>
