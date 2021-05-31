@@ -10,7 +10,7 @@ import { PageHeader, Button } from "antd";
 function App() {
   return (
     <>
-      <div className="container">
+      <div className="container header">
         <div className="site-page-header-ghost-wrapper">
           <PageHeader
             ghost={false}
@@ -24,6 +24,8 @@ function App() {
             ]}
           ></PageHeader>
         </div>
+        </div>
+        <div className="container">
         <Switch>
           <Route exact path="/">
             <PostsList />
